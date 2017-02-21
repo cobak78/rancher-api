@@ -47,7 +47,7 @@ class RancherApi
         $this->args['containerArg'] = $argv[2];
         $this->args['commandArg'] = $argv[3];
 
-        for ($i = 4; $i >= $argc; $i++) {
+        for ($i = 4; $i <= $argc; $i++) {
 
             if (!array_key_exists($i, $argv)) break;
 
