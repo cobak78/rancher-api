@@ -94,9 +94,7 @@ class RancherApi
         $response = $this->client->post($container->actions->execute, [
             "attachStdin" => true,
             "attachStdout" => true,
-            "command" => [
-                $this->args['commandArg']
-            ],
+                array_merge([$this->args['commandArg']], $this->args['params']),
             "tty" => false
         ], true);
 
