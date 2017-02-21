@@ -1,15 +1,15 @@
 {
-  "name": "Cobak78/rancher-api",
+  "name": "cobak78/rancher-api",
   "type": "library",
   "description": "Rancher API client",
   "keywords": ["rancher", "api", "client"],
-  "homepage": "http://github.com/Cobak78/rancher-api",
+  "homepage": "http://github.com/cobak78/rancher-api",
   "license": "GNU",
   "authors": [
     {
       "name": "Jaime Merino",
       "email": "jaime.merino@letsbonus.com",
-      "homepage": "http://github.com/Cobak78"
+      "homepage": "http://github.com/cobak78"
     }
   ],
   "autoload": {
