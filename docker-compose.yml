@@ -1,0 +1,9 @@
+version: "2"
+services:
+
+  fpm:
+    image: cobak/php-dev:7.0-dev
+    volumes:
+      - ./:/app/
+    ports:
+      - "2222:22"

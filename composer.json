@@ -1,0 +1,33 @@
+{
+  "name": "Cobak78/rancher-api",
+  "type": "library",
+  "description": "Rancher API client",
+  "keywords": ["rancher", "api", "client"],
+  "homepage": "http://github.com/Cobak78/rancher-api",
+  "license": "GNU",
+  "authors": [
+    {
+      "name": "Jaime Merino",
+      "email": "jaime.merino@letsbonus.com",
+      "homepage": "http://github.com/Cobak78"
+    }
+  ],
+  "autoload": {
+    "psr-4": {"Cobak78\\RancherApi\\": "src/"}
+  },
+  "autoload-dev": {
+    "psr-4": {"Cobak78\\RancherApi\\Tests\\": "tests/"}
+  },
+  "require": {
+    "php": ">=7.0",
+    "vlucas/phpdotenv": "^2.4",
+    "guzzlehttp/guzzle": "^6.2",
+    "ratchet/pawl": "^0.2.3"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4"
+  },
+  "config": {
+    "bin-dir": "bin"
+  }
+}
