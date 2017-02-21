@@ -80,11 +80,13 @@ class RancherApi
         }
     }
 
-    private function getContainer($url)
+    private function getContainers($url)
     {
         $fpmService = $this->client->get($url, true);
 
-        return $this->client->get('1a5/containers/' . $fpmService->instanceIds[0]);
+        $instances = $this->client->get($fpmService->instances, true);
+
+        return $instances->data;
 
 
     }
@@ -109,15 +111,24 @@ class RancherApi
         }
     }
 
-    public function execute()
+    /**
+     * @param bool $onAllContainers
+     */
+    public function execute($onAllContainers = false)
     {
         $stack = $this->getStack();
 
         $service = $this->getService($stack);
 
-        $container = $this->getContainer($service);
+        $containers = $this->getContainers($service);
 
-        $this->executeOn($container);
+        foreach ($containers as $container)
+        {
+            $this->executeOn($container);
 
+            if ($onAllContainers) {
+                break;
+            }
+        }
     }
 }
