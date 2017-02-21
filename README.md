@@ -1,4 +1,5 @@
 # rancher-api
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/cobak78/rancher-api/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/cobak78/rancher-api/?branch=master)
 
 Rancher api client with php7 and PSR7 specification, to execute bash actions on deployed containers
 
