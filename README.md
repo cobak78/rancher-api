@@ -36,6 +36,12 @@ $rancherApi->execute();
 
 ```
 
+If you need to execute the same script on all deployed containers, modify script.
+
+```php
+$rancherApi->execute(true);
+```
+
 this api expects at least three arguments:
 1. project name
 2. container name
