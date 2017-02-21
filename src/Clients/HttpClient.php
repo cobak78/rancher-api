@@ -45,10 +45,10 @@ class HttpClient
      */
     public function __construct()
     {
-        $this->accessKey = $_ENV['RANCHER_APIKEY'];
+        $this->accessKey = $_SERVER['RANCHER_APIKEY'];
         $this->httpClient = new Client();
-        $this->secretKey = $_ENV['RANCHER_SHARED'];
-        $this->host = $_ENV['RANCHER_HOST'];
+        $this->secretKey = $_SERVER['RANCHER_SHARED'];
+        $this->host = $_SERVER['RANCHER_HOST'];
     }
 
     /**
