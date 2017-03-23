@@ -53,6 +53,9 @@ class RancherApi
 
             $this->args['params'][] = $argv[$i];
         }
+
+        $this->args['params'] = $this->parseParameters($this->args['params']);
+
     }
 
 
@@ -130,5 +133,34 @@ class RancherApi
                 break;
             }
         }
+    }
+
+    /**
+     * @param $params
+     * @return array
+     */
+    public function parseParameters($params)
+    {
+
+        $newParams = [];
+
+        for ($i = 0; $i < count($params) ;$i++) {
+            if (false == strpos($params[$i],'=') && false !== strpos($params[$i],'-')) {
+
+                if ($i + 1 < count($params)) {
+                    if (false == strpos($params[$i+1],'=')){
+                        $newParams[] = $params[$i] . ' ' . $params[$i+1];
+                        $i++;
+                    } else {
+                        $newParams[] = $params[$i];
+                    }
+                }
+
+            } else {
+                $newParams[] = $params[$i];
+            }
+        }
+        return $newParams;
+
     }
 }
