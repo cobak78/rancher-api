@@ -10,26 +10,28 @@ Rancher-api includes a base image with test dependencies installed in.
 Use docker-compose file to stand up a fpm container with the app code mounted.
 
 #### Usage
-Create an script to use api.
+
+1. Create an script to use api.
 
 ```php
+require_once dirname(__FILE__) . '/vendor/autoload.php';
 
-define('DOCUMENT_ROOT', dirname(__FILE__));
-
-require_once DOCUMENT_ROOT . '/vendor/autoload.php';
-
-use Dotenv\Dotenv;
 use Cobak78\RancherApi\Clients\HttpClient;
 use Cobak78\RancherApi\Clients\WSClient;
 use Cobak78\RancherApi\RancherApi;
 
-$dotenv = new Dotenv(DOCUMENT_ROOT);
-$dotenv->load();
-
 $client = new HttpClient();
 $wsClient = new WSClient();
 
-$rancherApi = new RancherApi($client, $wsClient, $argv, $argc);
+$rancherApi = new RancherApi(
+    $rancherHost,
+    $rancherKey,
+    $rancherSecret
+    $client, 
+    $wsClient, 
+    $argv, 
+    $argc
+);
 
 $rancherApi->execute();
 
@@ -41,16 +43,22 @@ If you need to execute the same script on all deployed containers, modify script
 $rancherApi->execute(true);
 ```
 
-this api expects at least three arguments:
+this php script expects at least three arguments:
 1. project name
 2. container name
 3. command to execute
 4. command parameters [optional]
- 
+
+2. Create a bash file or execute this script inside the provided docker container:
 ```bash
 php execute.php project-api fpm bin/console c:c
 ```
 
+or 
+
+```
+$ docker exec [fpm-container] php execute.php project-api fpm bin/console c:c
+```
 
 ##### What it does
 

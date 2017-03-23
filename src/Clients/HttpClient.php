@@ -39,16 +39,24 @@ class HttpClient
      */
     private $isSocket;
 
-
     /**
      * HttpClient constructor.
+     * @param string $accessKey
+     * @param ClientInterface $httpClient
+     * @param string $secretKey
+     * @param string $host
      */
-    public function __construct()
+    public function __construct(
+        string $accessKey,
+        ClientInterface $httpClient,
+        string $secretKey,
+        string $host)
     {
-        $this->accessKey = $_SERVER['RANCHER_APIKEY'];
-        $this->httpClient = new Client();
-        $this->secretKey = $_SERVER['RANCHER_SHARED'];
-        $this->host = $_SERVER['RANCHER_HOST'];
+        $this->accessKey = $accessKey;
+        $this->httpClient = $httpClient;
+        $this->secretKey = $secretKey;
+        $this->host = $host;
+        $this->isSocket = false;
     }
 
     /**
