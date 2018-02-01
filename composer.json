@@ -4,7 +4,7 @@
   "description": "Rancher API client",
   "keywords": ["rancher", "api", "client"],
   "homepage": "http://github.com/cobak78/rancher-api",
-  "license": "GNU",
+  "license": "proprietary",
   "authors": [
     {
       "name": "Jaime Merino",
